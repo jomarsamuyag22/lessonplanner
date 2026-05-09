@@ -1,0 +1,17 @@
+USE lessonplanner_db;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS subject_color VARCHAR(20) DEFAULT '#dbeafe' AFTER subject;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS plan_type VARCHAR(80) NOT NULL DEFAULT 'DepEd 2026 Appendix A Lesson Plan' AFTER subject_color;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS lesson_date DATE NULL AFTER week_day;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS no_sessions VARCHAR(100) NULL AFTER duration;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS references_used TEXT NULL AFTER no_sessions;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS declaration_ai_use TEXT NULL AFTER references_used;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS content_standards TEXT NULL AFTER topic;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS performance_standards TEXT NULL AFTER content_standards;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS learner_context TEXT NULL AFTER objectives;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS integration TEXT NULL AFTER learner_context;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS pre_lesson TEXT NULL AFTER class_profile;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS lesson_flow LONGTEXT NULL AFTER pre_lesson;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS assessment TEXT NULL AFTER language_instruction;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS remarks TEXT NULL AFTER assessment;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS extended_learning TEXT NULL AFTER remarks;
+ALTER TABLE lesson_plans ADD COLUMN IF NOT EXISTS reflection TEXT NULL AFTER extended_learning;
